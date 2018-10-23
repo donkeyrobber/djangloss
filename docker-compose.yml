@@ -18,11 +18,11 @@ services:
         source: db-data
         target: /var/lib/mysql
   web:
-    image: donkeyrobber/djangloss
+    build: .
     expose:
-      - 80
+      - 8000
     ports:
-      - 8800:80
+      - 8000:8000
     volumes:
       - type: bind
         source: .
