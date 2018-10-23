@@ -1,0 +1,31 @@
+version: '3.2'
+
+services:
+  my-db:
+    image: mysql/mysql-server:5.7
+    expose: 
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user
+      - MYSQL_DATABASE=test
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - type: bind
+        source: db-data
+        target: /var/lib/mysql
+  web:
+    image: donkeyrobber/djangloss
+    expose:
+      - 80
+    ports:
+      - 8800:80
+    volumes:
+      - type: bind
+        source: .
+        target: /code
+    depends_on:
+      - my-db
