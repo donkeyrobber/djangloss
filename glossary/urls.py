@@ -7,6 +7,6 @@ urlpatterns = [
     path('create', views.TermCreate.as_view(), name="term_create"),
     path('update/<int:pk>', views.TermUpdate.as_view(), name="term_update"),
     path('view/<int:pk>', views.TermView.as_view(), name="term_view"),
-    path('delete/int:pk', views.TermDelete.as_view(), name="term_delete"),
+    path('delete/<int:pk>', views.TermDelete.as_view(), name="term_delete"),
 
 ]

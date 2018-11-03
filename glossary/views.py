@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -20,6 +21,12 @@ class TermCreate(CreateView):
     fields = ['term', 'description']
     template_name = 'terms/term_form.html'
     success_url = reverse_lazy('term_list')
+
+    def form_valid(self, form):
+        term = form.save(commit=False)
+        term.created_by = self.request.user
+        term.save()
+        return redirect(reverse_lazy('term_list'))
 
 
 class TermUpdate(UpdateView):

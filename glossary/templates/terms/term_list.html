@@ -13,9 +13,9 @@
     {% for term in object_list %}
     <tr>
     <td>{{ term.term }}</td>
-    <td><a href="{% url "term_view" book.id %}">view</a></td>
-    <td><a href="{% url "term_edit" book.id %}">edit</a></td>
-    <td><a href="{% url "term_delete" book.id %}">delete</a></td>
+    <td><a href="{% url "term_view" term.id %}">view</a></td>
+    <td><a href="{% url "term_update" term.id %}">edit</a></td>
+    <td><a href="{% url "term_delete" term.id %}">delete</a></td>
     </tr>
     {% endfor %}
 </tbody>
