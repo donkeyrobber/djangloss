@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Reset Password
+From: webmaster@localhost
+To: donkeyrobber@googlemail.com
+Date: Sun, 04 Nov 2018 22:06:40 -0000
+Message-ID: <154136920097.225.9469117405140451167@648b5bbd7e69>
+
+
+To initiate the password reset process for your donkeyrobber TestSite Account,
+click the link below:
+
+http://localhost:8000/accounts/reset/MQ/510-d83c9e1d6b3c9183a983/
+
+If clicking the link above doesn't work, please copy and paste the URL in a new browser
+window instead.
+
+
+-------------------------------------------------------------------------------
