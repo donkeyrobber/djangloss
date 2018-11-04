@@ -8,6 +8,35 @@
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-light navbar-expand-lg bg-primary navbar-dark">
+        <span class="navbr-brand">Textak</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if request.user.is_authenticated %}
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Favourites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+
+            </ul>
+            {% endif %}
+        </div>
+    </nav>
+</div>
+<div class="container">
     {% block content%} {% endblock %}
 </div>
 </body>
