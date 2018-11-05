@@ -6,37 +6,37 @@ from django.urls import reverse_lazy
 from . import models
 
 
-class TermList(ListView):
+class ArticleList(ListView):
     model = models.Term
-    template_name = 'terms/term_list.html'
+    template_name = 'article/article_list.html'
 
 
-class TermView(DetailView):
+class ArticleView(DetailView):
     model = models.Term
-    template_name = 'terms/term_detail.html'
+    template_name = 'article/article_detail.html'
 
 
-class TermCreate(CreateView):
+class ArticleCreate(CreateView):
     model = models.Term
     fields = ['term', 'description']
-    template_name = 'terms/term_form.html'
-    success_url = reverse_lazy('term_list')
+    template_name = 'article/article_form.html'
+    success_url = reverse_lazy('article_list')
 
     def form_valid(self, form):
         term = form.save(commit=False)
         term.created_by = self.request.user
         term.save()
-        return redirect(reverse_lazy('term_list'))
+        return redirect(reverse_lazy('article_list'))
 
 
-class TermUpdate(UpdateView):
+class ArticleUpdate(UpdateView):
     model = models.Term
     fields = ['term', 'description']
-    template_name = 'terms/term_form.html'
-    success_url = reverse_lazy('term_list')
+    template_name = 'article/article_form.html'
+    success_url = reverse_lazy('article_list')
 
 
-class TermDelete(DeleteView):
+class ArticleDelete(DeleteView):
     model = models.Term
-    template_name = 'terms/term_confirm_delete.html'
-    success_url = reverse_lazy('term_list')
+    template_name = 'article/article_confirm_delete.html'
+    success_url = reverse_lazy('article_list')
