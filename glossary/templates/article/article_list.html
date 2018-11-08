@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 
 {%  block content %}
-<h1>Terms</h1>
+<h1>Articles</h1>
 
-<table border="1">
+<a href="{% url "article_create" %}">New</a>
+
+<table class="table">
 <thead>
     <tr>
-    <th>Term</th>
-    <th>View</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th scope="col">Term</th>
+    <th scope="col">View</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
     </tr>
 </thead>
 <tbody>
     {% for term in object_list %}
     <tr>
     <td>{{ term.term }}</td>
-    <td><a href="{% url "term_view" term.id %}">view</a></td>
-    <td><a href="{% url "term_update" term.id %}">edit</a></td>
-    <td><a href="{% url "term_delete" term.id %}">delete</a></td>
+    <td><a href="{% url "article_view" term.id %}">view</a></td>
+    <td><a href="{% url "article_update" term.id %}">edit</a></td>
+    <td><a href="{% url "article_delete" term.id %}">delete</a></td>
     </tr>
     {% endfor %}
 </tbody>
 </table>
 
-<a href="{% url "term_create" %}">New</a>
 
 {% endblock %}
