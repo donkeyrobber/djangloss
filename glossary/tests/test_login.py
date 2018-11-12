@@ -14,3 +14,13 @@ class HomepageTest(TestCase):
         self.client.login(username=self.TEST_USERNAME, password=self.TEST_PASSWORD)
         response = self.client.get(reverse('login'))
         self.assertEquals(response.status_code, 302)
+
+    def test_nav_content_does_not_display_if_unauthenticated(self):
+        response = self.client.get(reverse('login'))
+        self.assertNotContains(response,'<ul class="navbar-nav mr-auto">')
+
+    def test_login_form_displays_if_unauthenticated(self):
+        response = self.client.get(reverse('login'))
+        self.assertContains(response, '<input type="text" name="username"')
+        self.assertContains(response, '<input type="password" name="password"')
+        self.assertContains(response, '<button type="submit">Login</button>')

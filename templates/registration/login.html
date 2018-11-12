@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="jumbotron">
         <div class="row">
             <div class="col-sm"></div>
             <div class="col-sm">
-                <form method="post">
-                  {% csrf_token %}
-                  {{ form|crispy }}
-                  <button type="submit">Login</button>
-                </form>
+                <div class="rounded bg-secondary p-4 mt-4">
+                    <form method="post">
+                      {% csrf_token %}
+                      {{ form|crispy }}
+                      <button type="submit">Login</button>
+                    </form>
+                </div>
             </div>
-                <div class="col-sm"></div>
+            <div class="col-sm"></div>
         </div>
-    </div>
 {% endblock %}
