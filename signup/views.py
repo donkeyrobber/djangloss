@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 
 
-class Signup(View):
+class SignupView(View):
 
     def get(self, request):
 
@@ -29,3 +32,12 @@ class Signup(View):
             form = UserCreationForm()
 
         return render(request, 'signup.html', {'form': form})
+
+
+class CustomLoginView(LoginView):
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return super().dispatch(request, *args, **kwargs)
