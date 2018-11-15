@@ -1,3 +1,8 @@
-<h1>Term</h1>
-<h2>Name: {{object.term}}</h2>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{object.term}}</h1>
+<h2>{{object.created_by.first_name}} {{object.created_by.last_name}}</h2>
 {{ object.description }}
+{% endblock %}
