@@ -18,7 +18,6 @@ class ArticleListTest(TestCase):
         response = self.client.get(reverse('article_list'))
         self.assertContains(response, '<h1>Articles</h1>')
 
-
     def test_article_list_page_contains_test_article(self):
         self.client.login(username=self.TEST_USERNAME,password=self.TEST_PASSWORD)
         response = self.client.get(reverse('article_list'))
