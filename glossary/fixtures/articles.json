@@ -1,0 +1,11 @@
+[
+  {
+    "model": "glossary.Term",
+    "pk": 1,
+    "fields": {
+      "term": "Test Article",
+      "description": "Blah, blah",
+      "created_by_id" : 1
+    }
+  }
+]
